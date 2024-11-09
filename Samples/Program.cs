@@ -1,4 +1,6 @@
-﻿DateTime dateTime1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,9,20,0);
+﻿using Samples;
+
+DateTime dateTime1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,9,9,0);
 Console.WriteLine($"arrival time : {dateTime1.ToString("HH:mm")}");
 var dateTime2 = dateTime1.AddHours(9).AddMinutes(15);
 Console.WriteLine($"departure time : {dateTime2.ToString("HH:mm")} -- {dateTime2.ToShortTimeString()} -- {dateTime2.ToString("hh:m tt")}");
@@ -12,5 +14,16 @@ if (d4 > d3)
     Console.WriteLine("SQL");
 else
     Console.WriteLine("ClickHouse");
+
+TestClass testClass = new TestClass 
+{
+};
+
+DtoClass dtoClass = new DtoClass
+{
+    InnerProp = testClass.InnerClassProp?.InnerProp,
+};
+
+Console.WriteLine(dtoClass.InnerProp?.ToString() ?? "Null");
 
 Console.ReadLine();
