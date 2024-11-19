@@ -1,6 +1,6 @@
 ﻿using Samples;
 
-DateTime dateTime1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,9,9,0);
+DateTime dateTime1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,9,21,0);
 Console.WriteLine($"arrival time : {dateTime1.ToString("HH:mm")}");
 var dateTime2 = dateTime1.AddHours(9).AddMinutes(15);
 Console.WriteLine($"departure time : {dateTime2.ToString("HH:mm")} -- {dateTime2.ToShortTimeString()} -- {dateTime2.ToString("hh:m tt")}");
@@ -25,5 +25,22 @@ DtoClass dtoClass = new DtoClass
 };
 
 Console.WriteLine(dtoClass.InnerProp?.ToString() ?? "Null");
+
+
+IEnumerable<TestClass2> testClass2 = new List<TestClass2>
+{
+    new TestClass2 { count = 10 },
+    new TestClass2 { count = 20 },
+    new TestClass2 { count = 30 },
+    new TestClass2 { count = 40 },
+};
+
+testClass2.ToList().ForEach(x => x.count++ );
+
+foreach (var item in testClass2)
+{
+    Console.WriteLine(item.count);
+}
+
 
 Console.ReadLine();
