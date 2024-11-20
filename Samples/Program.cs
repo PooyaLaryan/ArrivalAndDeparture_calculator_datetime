@@ -43,4 +43,32 @@ foreach (var item in testClass2)
 }
 
 
+var date1 = DateTime.Now;
+var date2 = DateTime.Now.AddMinutes(61);
+var diff1 = (int)(date2 - date1).TotalMinutes;
+
+var date3 = DateTime.Now;
+var date4 = DateTime.Now.AddMilliseconds(100);
+var diff2 = (int)(date3 - date4).TotalMinutes;
+
+
+
+//should be 0
+long l1 = 20240910153159565;
+long l2 = 20240910153124586;
+
+var l3 = (l1.ToDateTime() - l2.ToDateTime()).Minutes;
+
+//should be 1
+long l4 = 20240910153049546;
+long l5 = 20240910153124586;
+var l6 = (l4.ToDateTime() - l5.ToDateTime()).Minutes;
+var l7 = (l5.ToDateTime() - l4.ToDateTime()).Minutes;
+
+//should be 10
+long l8 = 20240910154937458;
+long l9 = 20240910153912053;
+var l10 = (l8.ToDateTime() - l9.ToDateTime()).Minutes;
+
 Console.ReadLine();
+
